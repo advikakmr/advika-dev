@@ -9,14 +9,14 @@ read -p ">> Enter commit message: " COMMIT_MSG
 echo ">> Building Hugo site..."
 hugo
 
-echo ">> Committing & pushing site to main..."
+echo ">> Committing & pushing files to main..."
 git add .
-git reset public
 git commit -m "$COMMIT_MSG" || echo ">> Nothing to commit."
-git push
+git push origin main
 
 echo ">> Committing & pushing static site to build..."
-git push origin --delete build
-git subtree push --prefix=public origin build
+git subtree split --prefix=public -b temp-deploy
+git push -f origin temp-deploy:build
+git branch -D temp-deploy
 
 echo ">> Done. Site deployed to build branch."
