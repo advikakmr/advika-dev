@@ -1,6 +1,0 @@
-baseURL = 'https://advika.dev/'
-languageCode = 'en-us'
-title = 'advika-blog'
-
-[params]
-    dateFormat = "01-02-06"
