@@ -159,10 +159,14 @@ a {
         max-width: 640px;
     }
     .logo {
-        font-size: 18px;
+        font-size: 20px;
     }
     .links {
-        font-size: 14px;
+        font-size: 16px;
+    }
+
+    .listItem {
+        flex-direction: column;
     }
 }
 @media (max-width: 640px) {
