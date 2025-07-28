@@ -9,7 +9,7 @@ author = "Advika Kumar"
 avatar = "/images/avatar.webp"
 +++
 
-# TEST CHANGE CONTENT
+# TEST CHANGE CONTENT testingggggg
 # What is MCP?
 **Model Context Protocol** is the “USB-C” or the “glue” of agentic AI—a protocol developed by Anthropic to standardize how tools, resources, prompts, and more (i.e. context) are exposed to AI agents. Its name effectively describes its job:  
 &emsp;**Model** - the large language model used within the AI agent   
