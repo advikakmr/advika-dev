@@ -1,6 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://advika.dev/'
 languageCode = 'en-us'
-title = 'advika.dev blog'
+title = 'advika-blog'
 
 [params]
     dateFormat = "01-02-06"

@@ -4,7 +4,7 @@ draft = false
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'
 desc = ''
 image = ''
-tags = []
+categories = []
 author = "Advika Kumar"
 avatar = "/images/avatar.webp"
 +++

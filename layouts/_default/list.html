@@ -2,14 +2,19 @@
 <div class="list">
     {{ range .Paginator.Pages }}
     <div class="listItem">
-        <img src={{ .Params.image }} alt="" class="listItemImg" loading="lazy">
+        <img src={{ .Params.image }} alt={{.Title}} class="listItemImg" loading="lazy">
         <div class="listItemTxt">
             <h1><a href={{ .Permalink }}>{{ .Title }}</a></h1>
                 <p class="listItemDesc">{{.Params.desc}}</p>
                 <div class="listItemDetails">
-                    <img src={{.Params.avatar}} alt="" loading="lazy">
-                    <span></span>
+                    <img src={{.Params.avatar}} alt="" loading="lazy" class="listItemAvatar">
+                    <span>{{.Params.author}}</span>
                     <time>{{ dateFormat .Site.Params.dateFormat .Date}}</time>
+                </div>
+                <div class="listItemCategories">
+                    {{ range (.GetTerms "categories") }}
+                    <a class='listItemCategory'href={{ .Permalink }}>{{ .Name }}</a>
+                    {{ end }}
                 </div>
         </div>
     </div>
