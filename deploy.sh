@@ -10,7 +10,8 @@ echo ">> Building Hugo site..."
 hugo
 
 echo ">> Committing & pushing site to main..."
-git add -- . ':!/public'
+git add .
+git reset public
 git commit -m "$COMMIT_MSG" || echo ">> Nothing to commit."
 git push
 
