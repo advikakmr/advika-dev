@@ -16,6 +16,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    opacity: 0.5;
+}
+
 * {
     margin: 0;
     box-sizing: border-box;
