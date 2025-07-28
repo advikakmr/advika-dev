@@ -11,9 +11,13 @@ git add -- . ':!/public'
 git commit -m "$COMMIT_MSG" || echo ">> Nothing to commit."
 git push
 
-echo ">> Commiting % pushing public/ folder to build..."
+echo ">> Switching to build"
 git switch build
+
+echo ">> Building Hugo..."
 hugo
+
+echo ">> Committing & pushing static site to build..."
 git add .
 git commit -m "$COMMIT_MSG" || echo ">> Nothing to commit."
 git push
