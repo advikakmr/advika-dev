@@ -6,14 +6,14 @@
     <description>Recent content on advika.dev blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Jul 2025 14:11:58 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 27 Jul 2025 18:14:53 -0700</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test Post</title>
-      <link>http://localhost:1313/posts/test-post/</link>
-      <pubDate>Sun, 27 Jul 2025 14:11:58 -0700</pubDate>
-      <guid>http://localhost:1313/posts/test-post/</guid>
-      <description>&lt;h1 id=&#34;hello&#34;&gt;hello&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;hello&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;hello&lt;/em&gt;&lt;/p&gt;</description>
+      <title>Model Context Protocol: An Overview</title>
+      <link>http://localhost:1313/mcp/</link>
+      <pubDate>Sun, 27 Jul 2025 18:14:53 -0700</pubDate>
+      <guid>http://localhost:1313/mcp/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

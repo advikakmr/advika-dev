@@ -1,4 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'advika.dev blog'
-theme = 'ananke'
+
+[params]
+    dateFormat = "01-02-06"
