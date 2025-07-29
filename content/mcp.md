@@ -2,7 +2,7 @@
 date = '2025-07-27T18:14:53-07:00'
 draft = false
 title = 'Model Context Protocol: An Overview'
-desc = 'A comprehensive overview for developers encountering MCP for the first time.'
+desc = 'A comprehensive overview for developers in AI encountering MCP for the first time.'
 image = '/images/mcp_logo.webp'
 categories = ['AI', 'Python']
 author = "Advika Kumar"
@@ -13,9 +13,7 @@ avatar = "/images/avatar.webp"
 **Model Context Protocol** is the “USB-C” or the “glue” of agentic AI—a protocol developed by Anthropic to standardize how tools, resources, prompts, and more (i.e. context) are exposed to AI agents. Its name effectively describes its job:
 - **Model** - the large language model used within the AI agent    
 - **Context** - the preliminary information given to a model to produce output that is relevant and accurate to the needs of the developer    
-- **Protocol** - the set of rules outlining how an agent can communicate with a server to receive necessary context; MCP creates a universal version of these rules    
-    
-    
+- **Protocol** - the set of rules outlining how an agent can communicate with a server to receive necessary context; MCP creates a universal version of these rules     
     
 #  Architecture
 
@@ -29,15 +27,11 @@ Here’s a quick Python example of MCP in practice:
 
 &emsp;[ code snippet ]
 
-
-
 #  Transport Types
 
 MCP currently supports two transport types: **standard input/output (STDIO)** for local use cases and **streamable Hypertext Transfer Protocol (HTTP)** for remote servers. In servers running via STDIO, the MCP client will launch its own server subprocess, enabling direct 1:1 coupling as well as auto-cleanup. This option is recommended for when the client and server run within the same program. For remote HTTP transport, the MCP server is its own independent process, enabling multiple clients to connect to it. HTTP servers have a single /mcp endpoint supporting both GET and POST requests. 
 
 There is also a third, deprecated transport method: server-sent events (SSE). SSE only allowed for one-way communication from the server to the client, and its stateful design limited scalability. Streamable HTTP solves these issues through its two-way communication and scalable nature due to its stateless architecture. The [Github MCP server](https://github.com/github/github-mcp-server) is an example of both local and remote transport methods.
-
-
 
 #  Why MCP?
 
