@@ -2,7 +2,7 @@
 date = '2025-07-27T18:14:53-07:00'
 draft = false
 title = 'Model Context Protocol: An Overview'
-desc = 'An overview of MCP'
+desc = 'A comprehensive overview for developers encountering MCP for the first time.'
 image = '/images/mcp_logo.webp'
 categories = ['AI', 'Python']
 author = "Advika Kumar"
@@ -11,22 +11,17 @@ avatar = "/images/avatar.webp"
 #  What is MCP?
 
 **Model Context Protocol** is the “USB-C” or the “glue” of agentic AI—a protocol developed by Anthropic to standardize how tools, resources, prompts, and more (i.e. context) are exposed to AI agents. Its name effectively describes its job:
-
-> **Model** - the large language model used within the AI agent
-> 
-> **Context** - the preliminary information given to a model to produce output that is relevant and accurate to the needs of the developer
->
-> **Protocol** - the set of rules outlining how an agent can communicate with a server to receive necessary context; MCP creates a universal version of these rules
-
-  
-
+- **Model** - the large language model used within the AI agent    
+- **Context** - the preliminary information given to a model to produce output that is relevant and accurate to the needs of the developer    
+- **Protocol** - the set of rules outlining how an agent can communicate with a server to receive necessary context; MCP creates a universal version of these rules    
+    
+    
+    
 #  Architecture
 
 MCP can be broken down into three components: the host, the client, and the server. The **host** is the agent itself. It contains and manages the LLM application as well as the MCP client. The **client** is the implementation layer that creates the link between the host and the server via the Model Context Protocol. The **server** exposes the context that the host wishes to access. It accesses external local or remote data sources to extract the desired information.
 
 &emsp;[ diagram ]
-
-  
 
 Let’s dive deeper into the different types of context an MCP server can contain. **Tools** (required) are the highlight of MCP servers. They are essentially functions. They give an agent the ability to execute a specific action. Given a list of tools, an agent decides which tool would be most helpful to answer a user’s query. A regular method becomes an agentic tool through an annotation/wrapper that describes the tool with its name, parameters, functionality, and output schema (more on this later). **Resources** (optional) are the data sources stored on the server, like datasets or config files. They are similar to the GET endpoints of a REST API. **Prompts** (optional) are pre-defined templates designed to guide the output of an LLM. 
 
@@ -34,7 +29,7 @@ Here’s a quick Python example of MCP in practice:
 
 &emsp;[ code snippet ]
 
-  
+
 
 #  Transport Types
 
@@ -42,7 +37,7 @@ MCP currently supports two transport types: **standard input/output (STDIO)** fo
 
 There is also a third, deprecated transport method: server-sent events (SSE). SSE only allowed for one-way communication from the server to the client, and its stateful design limited scalability. Streamable HTTP solves these issues through its two-way communication and scalable nature due to its stateless architecture. The [Github MCP server](https://github.com/github/github-mcp-server) is an example of both local and remote transport methods.
 
-  
+
 
 #  Why MCP?
 

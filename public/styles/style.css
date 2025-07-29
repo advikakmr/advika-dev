@@ -27,8 +27,8 @@ a:hover {
 
 .container {
     max-width: 1366px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 150px;
+    padding-right: 150px;
     margin: auto;
     min-height: 100vh;
     display: flex;
@@ -87,6 +87,10 @@ a:hover {
 
 /* LIST START */
 
+.listHeader {
+    padding-bottom: 30px;
+}
+
 .listItem {
     display: flex;
     align-items: center;
@@ -136,6 +140,82 @@ a:hover {
 
 /* LIST END */
 
+/* SINGLE START */
+
+.singleHead {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-direction: row;
+}
+
+.singleHeadTxts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.singleHeadTitle {
+    display: flex;
+    font-size: 50px;
+}
+
+.singleHeadDesc {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.singleHeadDetails {
+    gap: 10px;
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+}
+
+.singleAvatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.singleImg {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.singleBottom {
+    margin-top: 10px;
+    display: flex;
+}
+
+.singleContent {
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.singleContent p,
+.singleContent h1,
+.singleContent h2,
+.singleContent h3 {
+    margin: 20px 0px;
+}
+
+.singleContent img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.singleContent pre {
+    width: 100%;
+    overflow-x: scroll;
+    padding: 20px; 
+}
+
+/* SINGLE END */
+
 @media (max-width: 1536px) {
     .container {
         max-width: 1366px;
@@ -168,13 +248,20 @@ a:hover {
     .links {
         font-size: 16px;
     }
-
-    .listItem {
-        flex-direction: column;
-    }
+    
 }
 @media (max-width: 640px) {
     .container {
         max-width: 475px;
+    }
+    .listItem {
+        flex-direction: column;
+    }
+
+    .singleHead {
+        display: flex;
+        justify-content: between;
+        gap: 20px;
+        flex-direction: column;
     }
 }

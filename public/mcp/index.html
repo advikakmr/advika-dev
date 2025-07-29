@@ -27,12 +27,26 @@
 </nav>
         
 <div class="single">
-    <h1 id="what-is-mcp">What is MCP?</h1>
+    <div class="singleHead">
+        <div class="singleHeadTxts">
+            <h1 class="singleHeadTitle">Model Context Protocol: An Overview</h1>
+            <p class="singleHeadDesc">A comprehensive overview for developers encountering MCP for the first time.</p>
+            <div class="singleHeadDetails">
+                <img src=/images/avatar.webp loading="lazy" alt="" class="singleAvatar">
+                <span>Advika Kumar</span>
+                <time>07-27-25</time>
+            </div>
+        </div>
+        <img src=/images/mcp_logo.webp alt=Model&#32;Context&#32;Protocol:&#32;An&#32;Overview class="singleImg">
+    </div>
+    <div class="singleBottom">
+        <div class="singleContent"><h1 id="what-is-mcp">What is MCP?</h1>
 <p><strong>Model Context Protocol</strong> is the “USB-C” or the “glue” of agentic AI—a protocol developed by Anthropic to standardize how tools, resources, prompts, and more (i.e. context) are exposed to AI agents. Its name effectively describes its job:</p>
-<blockquote>
-<p><strong>Model</strong> - the large language model used within the AI agent</p>
-<p><strong>Context</strong> - the preliminary information given to a model to produce output that is relevant and accurate to the needs of the developer</p>
-<p><strong>Protocol</strong> - the set of rules outlining how an agent can communicate with a server to receive necessary context; MCP creates a universal version of these rules</p></blockquote>
+<ul>
+<li><strong>Model</strong> - the large language model used within the AI agent</li>
+<li><strong>Context</strong> - the preliminary information given to a model to produce output that is relevant and accurate to the needs of the developer</li>
+<li><strong>Protocol</strong> - the set of rules outlining how an agent can communicate with a server to receive necessary context; MCP creates a universal version of these rules</li>
+</ul>
 <h1 id="architecture">Architecture</h1>
 <p>MCP can be broken down into three components: the host, the client, and the server. The <strong>host</strong> is the agent itself. It contains and manages the LLM application as well as the MCP client. The <strong>client</strong> is the implementation layer that creates the link between the host and the server via the Model Context Protocol. The <strong>server</strong> exposes the context that the host wishes to access. It accesses external local or remote data sources to extract the desired information.</p>
 <p> [ diagram ]</p>
@@ -45,7 +59,8 @@
 <h1 id="why-mcp">Why MCP?</h1>
 <p>Before MCP, tool-integration was annoying. Every new tool added to an agent forced a developer to write their own custom implementation. If the developer wanted to reuse tools for different agents, copying this code across programs was difficult and redundant. Essentially, tool-calling was hard-wired and program-specific, which was not ideal for reusability and scalability.</p>
 <p>MCP solves this problem: rather than having developers create a new implementation of context-retrieval with every agentic workflow, MCP allows agents to simply connect to one server that contains all of the necessary context. Every tool implementation will now adhere to the same protocol, which means all MCP-compatible agents will follow similar workflows. Importantly, MCP decouples tool-calling from other capabilities of an AI agent. In other words, tools can easily be plugged in and out of a program, which also means community MCP servers can be created and shared.</p>
-
+</div>
+    </div>
 </div>
 
     </div>

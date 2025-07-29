@@ -1,5 +1,19 @@
 {{ define "main" }}
 <div class="single">
-    {{ .Content}}
+    <div class="singleHead">
+        <div class="singleHeadTxts">
+            <h1 class="singleHeadTitle">{{.Title}}</h1>
+            <p class="singleHeadDesc">{{.Params.desc}}</p>
+            <div class="singleHeadDetails">
+                <img src={{.Params.avatar}} loading="lazy" alt="" class="singleAvatar">
+                <span>{{ .Params.author }}</span>
+                <time>{{ dateFormat .Site.Params.dateFormat .Date }}</time>
+            </div>
+        </div>
+        <img src={{.Params.image}} alt={{.Title}} class="singleImg">
+    </div>
+    <div class="singleBottom">
+        <div class="singleContent">{{.Content}}</div>
+    </div>
 </div>
 {{ end }}
