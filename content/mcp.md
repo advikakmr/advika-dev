@@ -95,15 +95,25 @@ Before MCP, tool-integration was annoying. Every new tool added to an agent forc
 
 MCP solves this problem: rather than having developers create a new implementation of context-retrieval with every agentic workflow, MCP allows agents to simply connect to one server that contains all of the necessary context. Every tool implementation will now adhere to the same protocol, which means all MCP-compatible agents will follow similar workflows. Importantly, MCP decouples tool-calling from other capabilities of an AI agent. In other words, tools can easily be plugged in and out of a program, which also means community MCP servers can be created and shared.
 
-Let's look at an example of how easily an MCP server can be plugged into a client.    
-[example TBA]
+Let's look at an example of how easily an MCP server can be plugged into a client. Say you have an MCP server running via STDIO, and you want to connect it to a client like [Claude Desktop](https://claude.ai/download). All it takes is editing the config files within the client to expose your server locally:    
+
+`claude_desktop_config.json`
+```json
+{
+    "mcpServers": {
+        "your-mcp-server-name": {
+            "command": "/Users/username/path/to/venv/bin/python",
+            "args": "/Users/username/path/to/mcp-server.py"
+        }
+    }
+}
+```
+The command is either the path to your virtual environment or simply "python". The argument is the path to your MCP server.    
+
+*(Note: connecting remote HTTP servers to Claude Desktop requires a premium subscription.)*
 
 # MCP vs APIs
-MCP tools typically call REST APIs to carry out their functionality. The server is the translation or adaptation layer for the LLM, creating a standard way for the necessary APIs to be called. MCP does more than just wrap up APIs within a server; it extends and enhances their functionalities. For example, APIs are designed to handle single, one-step tasks. However, tools in an MCP server target broader problems, as a single tool can call many API endpoints to achieve its goal. Moreover, through MCP’s sampling feature, a server can prompt an LLM for an output as an intermediary step before sending back a final response to the client, effectively using AI to enhance the basic capabilities of an API. 
+MCP tools typically call REST APIs to carry out their functionality. The server acts as a kind of translation layer for the LLM, creating a standard way for agents to call the necessary APIs. However, MCP does more than just wrap up APIs within a server; it extends and enhances them. For instance, APIs are designed to handle single, one-step tasks. In contrast, tools in an MCP server target broader problems, as a single tool can call many API endpoints to achieve its goal. Moreover, through MCP’s sampling feature, a server can prompt an LLM for an output as an intermediary step before sending back a final response to the client, effectively using AI to enhance the basic capabilities of an API. 
 
 # MCP vs RAG
 TBA
-
-# Security
-TBA
-

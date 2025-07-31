@@ -1,6 +1,7 @@
 :root {
     --bg: rgb(231, 231, 231);
     --bgDark: rgb(214, 214, 214);
+    --bgDarker: rgb(181, 181, 181);
     --text: rgb(61, 61, 61);
     --textLight: rgb(151, 151, 151);
 }
@@ -42,6 +43,8 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     height: 100px;
+    border-bottom: 1px solid var(--bgDarker);
+    margin-bottom: 30px;
 }
 
 .logo {
@@ -227,6 +230,7 @@ a:hover {
     overflow-x: auto;
     padding: 20px; 
     border-radius: 10px;
+    margin-top: -10px;
 
 }
 
