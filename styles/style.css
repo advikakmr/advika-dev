@@ -220,10 +220,6 @@ a:hover {
     background-color: var(--bgDark);
     padding: 5px;
     border-radius: 5px;
-    text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
 }
 
 .singleContent pre {
@@ -232,6 +228,14 @@ a:hover {
     padding: 20px; 
     border-radius: 10px;
 
+}
+
+.singleContent pre span {
+    font-size: 14px;
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 .singleContent a {
