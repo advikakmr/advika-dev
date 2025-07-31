@@ -19,4 +19,4 @@ git subtree split --prefix=public -b temp-deploy
 git push -f origin temp-deploy:build
 git branch -D temp-deploy
 
-echo -e "\n>> Done. Site deployed to build branch.\n"
+echo -e "\n>> Site deployed to build branch!\n"

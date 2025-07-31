@@ -200,6 +200,7 @@ a:hover {
     line-height: 32px;
 }
 
+
 .singleContent p,
 .singleContent h2,
 .singleContent h3 {
@@ -214,10 +215,24 @@ a:hover {
     object-fit: cover;
 }
 
+.singleContent p code {
+    font-size: 14px;
+    background-color: var(--bgDark);
+    padding: 5px;
+    border-radius: 5px;
+}
+
 .singleContent pre {
     width: 100%;
     overflow-x: scroll;
     padding: 20px; 
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+.singleContent a {
+    text-decoration: underline;
+    color: rgb(104, 104, 255);
 }
 
 /* SINGLE END */
