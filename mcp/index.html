@@ -50,7 +50,7 @@
 </ul>
 <h1 id="architecture">Architecture</h1>
 <p>MCP can be broken down into three components: the host, the client, and the server. The <strong>host</strong> is the agent itself. It contains and manages the LLM application as well as the MCP client. The <strong>client</strong> is the implementation layer that creates the link between the host and the server via the Model Context Protocol. The <strong>server</strong> exposes the context that the host wishes to access. It accesses external local or remote data sources to extract the desired information.</p>
-<p><img src="/images/mcp-flow.png" alt="MCP Flow" title="MCP Flow"></p>
+<p><img src="/images/mcp-flow.webp" alt="MCP Flow" title="MCP Flow"></p>
 <p>Let’s dive deeper into the different types of context an MCP server can contain. <strong>Tools</strong> (required) are the highlight of MCP servers. They are essentially functions. They give an agent the ability to execute a specific action. Given a list of tools, an agent decides which tool would be most helpful to answer a user’s query. A regular method becomes an agentic tool through an annotation/wrapper that describes the tool with its name, parameters, functionality, and output schema (more on this later). <strong>Resources</strong> (optional) are the data sources stored on the server, like datasets or config files. They are similar to the GET endpoints of a REST API. <strong>Prompts</strong> (optional) are pre-defined templates designed to guide the output of an LLM.</p>
 <p>Here’s what an MCP server looks like in practice, using OpenAI&rsquo;s Agents SDK (Remember to export your API key!):</p>
 <p><code>server.py</code></p>
