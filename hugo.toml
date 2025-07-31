@@ -4,3 +4,9 @@ title = 'advika-blog'
 
 [params]
     dateFormat = "01-02-06"
+
+[HTTPCache]
+    [HTTPCache.cache]
+        [HTTPCache.cache.for]
+            excludes = ['**']
+            includes = []
