@@ -30,6 +30,7 @@ a:hover {
     max-width: 1366px;
     padding-left: 150px;
     padding-right: 150px;
+    padding-bottom: 75px;
     margin: auto;
     min-height: 100vh;
     display: flex;
