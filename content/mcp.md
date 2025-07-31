@@ -20,7 +20,7 @@ avatar = "/images/avatar.webp"
 MCP can be broken down into three components: the host, the client, and the server. The **host** is the agent itself. It contains and manages the LLM application as well as the MCP client. The **client** is the implementation layer that creates the link between the host and the server via the Model Context Protocol. The **server** exposes the context that the host wishes to access. It accesses external local or remote data sources to extract the desired information.   
 
 
-![MCP Flow](/images/mcp-flow.png "MCP Flow")
+![MCP Flow](/images/mcp-flow.webp "MCP Flow")
 
 Let’s dive deeper into the different types of context an MCP server can contain. **Tools** (required) are the highlight of MCP servers. They are essentially functions. They give an agent the ability to execute a specific action. Given a list of tools, an agent decides which tool would be most helpful to answer a user’s query. A regular method becomes an agentic tool through an annotation/wrapper that describes the tool with its name, parameters, functionality, and output schema (more on this later). **Resources** (optional) are the data sources stored on the server, like datasets or config files. They are similar to the GET endpoints of a REST API. **Prompts** (optional) are pre-defined templates designed to guide the output of an LLM. 
 
