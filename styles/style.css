@@ -223,11 +223,12 @@ a:hover {
 }
 
 .singleContent pre {
-    width: 100%;
-    overflow-x: scroll;
+    max-width: 95vw;
+    overflow-x: auto;
     padding: 20px; 
     font-size: 14px;
     border-radius: 10px;
+
 }
 
 .singleContent a {
