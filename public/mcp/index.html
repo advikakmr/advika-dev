@@ -31,18 +31,19 @@
     <div class="singleHead">
         <div class="singleHeadTxts">
             <h1 class="singleHeadTitle">Model Context Protocol: An Overview</h1>
-            <p class="singleHeadDesc">A comprehensive overview for developers in AI encountering MCP for the first time.</p>
+            <p class="singleHeadDesc">An introductory overview for developers in AI encountering MCP for the first time.</p>
             <div class="singleHeadDetails">
                 <img src=/images/avatar.webp loading="lazy" alt="" class="singleAvatar">
                 <span>Advika Kumar</span>
-                <time>07-27-25</time>
+                <time>07-31-25</time>
             </div>
         </div>
         <img src=/images/mcp_logo.webp alt=Model&#32;Context&#32;Protocol:&#32;An&#32;Overview class="singleImg">
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><h1 id="what-is-mcp">What is MCP?</h1>
-<p><strong>Model Context Protocol</strong> is the “USB-C” or the “glue” of agentic AI—a protocol developed by Anthropic to standardize how tools, resources, prompts, and more (i.e. context) are exposed to AI agents. Its name effectively describes its job:</p>
+        <div class="singleContent"><p>Over the summer, I&rsquo;ve been spending a lot of time working with the latest open framework for agentic AI: Model Context Protocol. In this article, we&rsquo;ll go through what exactly MCP is and how it can significantly enhance agentic workflows.</p>
+<h1 id="what-is-mcp">What is MCP?</h1>
+<p><strong>Model Context Protocol</strong> is the “USB-C” or the “glue” of agentic AI—a protocol developed by <a href="https://www.anthropic.com/">Anthropic</a> to standardize how tools, resources, prompts, and more (i.e. context) are exposed to AI agents. Its name effectively describes its job:</p>
 <ul>
 <li><strong>Model</strong> - the large language model used within the AI agent</li>
 <li><strong>Context</strong> - the preliminary information given to a model to produce output that is relevant and accurate to the needs of the developer</li>
@@ -52,7 +53,7 @@
 <p>MCP can be broken down into three components: the host, the client, and the server. The <strong>host</strong> is the agent itself. It contains and manages the LLM application as well as the MCP client. The <strong>client</strong> is the implementation layer that creates the link between the host and the server via the Model Context Protocol. The <strong>server</strong> exposes the context that the host wishes to access. It accesses external local or remote data sources to extract the desired information.</p>
 <p><img src="/images/mcp-flow.webp" alt="MCP Flow" title="MCP Flow"></p>
 <p>Let’s dive deeper into the different types of context an MCP server can contain. <strong>Tools</strong> (required) are the highlight of MCP servers. They are essentially functions. They give an agent the ability to execute a specific action. Given a list of tools, an agent decides which tool would be most helpful to answer a user’s query. A regular method becomes an agentic tool through an annotation/wrapper that describes the tool with its name, parameters, functionality, and output schema (more on this later). <strong>Resources</strong> (optional) are the data sources stored on the server, like datasets or config files. They are similar to the GET endpoints of a REST API. <strong>Prompts</strong> (optional) are pre-defined templates designed to guide the output of an LLM.</p>
-<p>Here’s what an MCP server looks like in practice, using OpenAI&rsquo;s Agents SDK (Remember to export your API key!):</p>
+<p>Here’s what a simple MCP server can look like in practice, using OpenAI&rsquo;s Agents SDK (remember to export your OpenAI API key!):</p>
 <p><code>server.py</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> fastmcp <span style="color:#f92672">import</span> FastMCP
 </span></span><span style="display:flex;"><span>
@@ -98,15 +99,23 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
 </span></span><span style="display:flex;"><span>    asyncio<span style="color:#f92672">.</span>run(main())
-</span></span></code></pre></div><p>Once the server is running, the agent will be able to connect and access all available tools.</p>
+</span></span></code></pre></div><p>It&rsquo;s that simple! Once your server is up and running, the agent will be able to connect and access all available tools.</p>
 <h1 id="transport-types">Transport Types</h1>
-<p>MCP currently supports two transport types: <strong>standard input/output (STDIO)</strong> for local use cases and <strong>streamable Hypertext Transfer Protocol (HTTP)</strong> for remote servers. In servers running via STDIO, the MCP client will launch its own server subprocess, enabling direct 1:1 coupling as well as auto-cleanup. This option is recommended for when the client and server run within the same program. For remote HTTP transport, the MCP server is its own independent process, enabling multiple clients to connect to it. HTTP servers have a single /mcp endpoint supporting both GET and POST requests.</p>
-<p>There is also a third, deprecated transport method: server-sent events (SSE). SSE only allowed for one-way communication from the server to the client, and its stateful design limited scalability. Streamable HTTP solves these issues through its two-way communication and scalable nature due to its stateless architecture. The <a href="https://github.com/github/github-mcp-server">Github MCP server</a> is an example of both local and remote transport methods.</p>
+<p>MCP currently supports two transport types. The first is <strong>standard input/output (STDIO)</strong> for local servers. With STDIO, the MCP client will launch its own server subprocess, enabling direct 1:1 coupling as well as auto-cleanup. This option is recommended for when the client and server run within the same program (see example above).</p>
+<p>The second transport type is <strong>streamable Hypertext Transfer Protocol (HTTP)</strong> for remote servers. In this case, the MCP server is its own independent process, enabling multiple clients to connect to it. This kind of server has a single /mcp endpoint, supporting both GET and POST HTTP requests.</p>
+<p>The <a href="https://github.com/github/github-mcp-server">Github MCP server</a> is an example of both local and remote transport methods.</p>
+<p>There is also a third, deprecated transport method: <strong>server-sent events (SSE)</strong>. SSE only allowed for one-way communication from the server to the client, and its stateful design limited scalability. Streamable HTTP solves these issues through its two-way communication and scalable nature due to its stateless architecture.</p>
 <h1 id="why-mcp">Why MCP?</h1>
 <p>Before MCP, tool-integration was annoying. Every new tool added to an agent forced a developer to write their own custom implementation. If the developer wanted to reuse tools for different agents, copying this code across programs was difficult and redundant. Essentially, tool-calling was hard-wired and program-specific, which was not ideal for reusability and scalability.</p>
 <p>MCP solves this problem: rather than having developers create a new implementation of context-retrieval with every agentic workflow, MCP allows agents to simply connect to one server that contains all of the necessary context. Every tool implementation will now adhere to the same protocol, which means all MCP-compatible agents will follow similar workflows. Importantly, MCP decouples tool-calling from other capabilities of an AI agent. In other words, tools can easily be plugged in and out of a program, which also means community MCP servers can be created and shared.</p>
+<p>Let&rsquo;s look at an example of how easily an MCP server can be plugged into a client. <br>
+[example TBA]</p>
 <h1 id="mcp-vs-apis">MCP vs APIs</h1>
 <p>MCP tools typically call REST APIs to carry out their functionality. The server is the translation or adaptation layer for the LLM, creating a standard way for the necessary APIs to be called. MCP does more than just wrap up APIs within a server; it extends and enhances their functionalities. For example, APIs are designed to handle single, one-step tasks. However, tools in an MCP server target broader problems, as a single tool can call many API endpoints to achieve its goal. Moreover, through MCP’s sampling feature, a server can prompt an LLM for an output as an intermediary step before sending back a final response to the client, effectively using AI to enhance the basic capabilities of an API.</p>
+<h1 id="mcp-vs-rag">MCP vs RAG</h1>
+<p>TBA</p>
+<h1 id="security">Security</h1>
+<p>TBA</p>
 </div>
     </div>
 </div>

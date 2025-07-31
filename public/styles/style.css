@@ -226,9 +226,12 @@ a:hover {
     max-width: 95vw;
     overflow-x: auto;
     padding: 20px; 
-    font-size: 14px;
     border-radius: 10px;
 
+}
+
+.singleContent pre span {
+    font-size: 14px;
 }
 
 .singleContent a {
