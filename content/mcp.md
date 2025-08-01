@@ -20,11 +20,11 @@ Over the summer, I've been spending a lot of time working with the latest open f
     
 #  Architecture
 
-MCP can be broken down into three components: the host, the client, and the server. The **host** is the agent itself. It contains and manages the LLM application as well as the MCP client. The **client** is the implementation layer that creates the link between the host and the server via the Model Context Protocol. The **server** exposes the context that the host wishes to access. It accesses external local or remote data sources to extract the desired information.   
+MCP can be broken down into three components: the host, the client, and the server. The **host** is the agent itself. It contains and manages the LLM application as well as the MCP client. The **client** is the implementation layer that creates the link between the host and the server via the Model Context Protocol. The **server** exposes the context that the host is requesting by accessing external data sources.   
 
 ![MCP Flow](/images/mcp-flow.webp "MCP Flow")
 
-Let’s dive deeper into the different types of context an MCP server can contain. **Tools** (required) are the highlight of MCP servers. They are essentially functions. They give an agent the ability to execute a specific action. Given a list of tools, an agent decides which tool would be most helpful to answer a user’s query. A regular method becomes an agentic tool through an annotation/wrapper that describes the tool with its name, parameters, functionality, and output schema (more on this later). **Resources** (optional) are the data sources stored on the server, like datasets or config files. They are similar to the GET endpoints of a REST API. **Prompts** (optional) are pre-defined templates designed to guide the output of an LLM. 
+Let’s dive deeper into the different types of context an MCP server can contain. **Tools** (required) are the highlight of MCP servers. They are essentially functions. They give an agent the ability to execute a specific action. Given a list of tools, an agent decides which tool would be most helpful to answer a user’s query. A regular method becomes an agentic tool through an annotation/wrapper that describes the tool with its name, parameters, functionality, and output schema. **Resources** (optional) are the data sources stored on the server, like datasets or config files. They are similar to the GET endpoints of a REST API. **Prompts** (optional) are pre-defined templates designed to guide the output of an LLM. 
 
 Here’s what a simple MCP server can look like in practice, using OpenAI's Agents SDK (remember to export your OpenAI API key!):
 
@@ -91,7 +91,7 @@ There is also a third, deprecated transport method: **server-sent events (SSE)**
 
 #  Why MCP?
 
-Before MCP, tool-integration was annoying. Every new tool added to an agent forced a developer to write their own custom implementation. If the developer wanted to reuse tools for different agents, copying this code across programs was difficult and redundant. Essentially, tool-calling was hard-wired and program-specific, which was not ideal for reusability and scalability. 
+Before MCP, tool integration was annoying. Every new tool added to an agent forced a developer to write their own custom implementation. If the developer wanted to reuse tools for different agents, copying this code across programs was difficult and redundant. Essentially, tool-calling was hard-wired and program-specific, which was not ideal for reusability and scalability. 
 
 MCP solves this problem: rather than having developers create a new implementation of context-retrieval with every agentic workflow, MCP allows agents to simply connect to one server that contains all of the necessary context. Every tool implementation will now adhere to the same protocol, which means all MCP-compatible agents will follow similar workflows. Importantly, MCP decouples tool-calling from other capabilities of an AI agent. In other words, tools can easily be plugged in and out of a program, which also means community MCP servers can be created and shared.
 
@@ -108,12 +108,12 @@ Let's look at an example of how easily an MCP server can be plugged into a clien
     }
 }
 ```
-The command is either the path to your virtual environment or simply "python". The argument is the path to your MCP server.    
+The command is either the path to your virtual environment or simply "python". The argument is the path to your MCP server. With just a few lines of code, Claude can now call any tool on your MCP server before generating a response.    
 
 *(Note: connecting remote HTTP servers to Claude Desktop requires a premium subscription.)*
 
 # MCP vs APIs
-MCP tools typically call REST APIs to carry out their functionality. The server acts as a kind of translation layer for the LLM, creating a standard way for agents to call the necessary APIs. However, MCP does more than just wrap up APIs within a server; it extends and enhances them. For instance, APIs are designed to handle single, one-step tasks. In contrast, tools in an MCP server target broader problems, as a single tool can call many API endpoints to achieve its goal. Moreover, through MCP’s sampling feature, a server can prompt an LLM for an output as an intermediary step before sending back a final response to the client, effectively using AI to enhance the basic capabilities of an API. Another benefit of MCP is its dynamic tool discovery. While API endpoints need to be documented and discovered in development, MCP tools are exposed and requested at runtime, making MCP servers much easier to scale.
+MCP tools typically call REST APIs to carry out their functionality. The server acts as a kind of translation layer for the LLM, creating a standard way for agents to call the necessary APIs (recall: no more custom developer-specific implementations!). However, MCP does more than just wrap up APIs within a server; it extends and enhances them. APIs are designed to handle single, one-step tasks. In contrast, tools in an MCP server target broader problems, as a single tool can call many API endpoints to achieve its goal. Another benefit of MCP is its dynamic tool discovery. While API endpoints need to be documented and discovered in development, MCP tools are exposed and requested at runtime, making servers much easier to scale.
 
 # MCP & RAG
 The capabilities of AI agents have always been limited by real-time access to information. In the beginning, all that an LLM could do was use the static information from its training to answer questions. As the world moved towards creating agents with human-like levels of decision-making and problem-solving, having access to external, up-to-date data was crucial. [Retrieval-Augmented Generation (RAG)](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) attempted to combat this issue in 2024. Through RAG, models can reference large external knowledge bases to produce more useful and relevant outputs.       
