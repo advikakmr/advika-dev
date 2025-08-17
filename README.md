@@ -2,7 +2,6 @@
 personal website for blogging, will add more as I go
 
 ## TO-DO:
-- finish MCP post
 - search bar functionality
 - improve navbar
 - about page (user)
