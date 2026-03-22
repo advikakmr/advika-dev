@@ -4,8 +4,8 @@
 {{- $height := .Get "height" | default "" -}}
 {{- $extraStyle := .Get "style" | default "" -}}
 {{- $style := "" -}}
-{{- if $width }}{{- $style = printf "%swidth:%s;" $style $width -}}{{- end -}}
-{{- if $height }}{{- $style = printf "%sheight:%s;" $style $height -}}{{- end -}}
+{{- if $width }}{{- $style = printf "%smax-width:%s;" $style $width -}}{{- end -}}
+{{- if $height }}{{- $style = printf "%smax-height:%s;" $style $height -}}{{- end -}}
 {{- $style = printf "%s%s" $style $extraStyle -}}
 
 {{- $img := .Page.Resources.GetMatch $src -}}
