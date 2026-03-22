@@ -5,8 +5,6 @@
             <h1 class="singleHeadTitle">{{.Title}}</h1>
             <p class="singleHeadDesc">{{.Params.desc}}</p>
             <div class="singleHeadDetails">
-                <img src={{.Params.avatar}} loading="lazy" alt="" class="singleAvatar">
-                <span>{{ .Params.author }}</span>
                 <time>{{ dateFormat .Site.Params.dateFormat .Date }}</time>
             </div>
         </div>

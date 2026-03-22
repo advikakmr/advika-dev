@@ -1,0 +1,22 @@
+{{- $src := .Get "src" -}}
+{{- $title := .Get "title" -}}
+{{- $width := .Get "width" | default "" -}}
+{{- $height := .Get "height" | default "" -}}
+{{- $extraStyle := .Get "style" | default "" -}}
+{{- $style := "" -}}
+{{- if $width }}{{- $style = printf "%swidth:%s;" $style $width -}}{{- end -}}
+{{- if $height }}{{- $style = printf "%sheight:%s;" $style $height -}}{{- end -}}
+{{- $style = printf "%s%s" $style $extraStyle -}}
+
+{{- $img := .Page.Resources.GetMatch $src -}}
+{{- if $img -}}
+  <figure>
+    <img src="{{ $img.RelPermalink }}" alt="{{ $title }}"{{ with $style }} style="{{ . | safeCSS }}"{{ end }}>
+    {{- with $title }}<figcaption>{{ . | safeCSS }}</figcaption>{{ end -}}
+  </figure>
+{{- else -}}
+  <figure>
+    <img src="{{ $src }}" alt="{{ $title }}"{{ with $style }} style="{{ . | safeCSS }}"{{ end }}>
+    {{- with $title }}<figcaption>{{ . | safeCSS }}</figcaption>{{ end -}}
+  </figure>
+{{- end -}}

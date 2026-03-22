@@ -3,7 +3,7 @@ languageCode = 'en-us'
 title = 'advika-blog'
 
 [params]
-    dateFormat = "01-02-06"
+    dateFormat = "Jan 2, 2006"
     ogImage = "/images/mcp_logo.webp"
 
 [HTTPCache]

@@ -10,7 +10,7 @@
     <title>advika's blog</title>
 </head>
 <body>
-    <div class="container">
+    <div class="{{ if .IsHome }}containerHome{{ else }}containerPage{{ end }}">
         {{ partial "navbar" . }}
         {{ block "main" . }} {{ end }}
     </div>
