@@ -12,7 +12,8 @@ hugo
 echo -e "\n>> Committing & pushing files to main...\n"
 git add .
 git commit -m "$COMMIT_MSG" || echo "\n>> Nothing to commit.\n"
-git push origin main
+# force push
+git push -f origin main
 
 echo -e "\n>> Committing & pushing static site to build...\n"
 git subtree split --prefix=public -b temp-deploy
