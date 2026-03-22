@@ -2,18 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on advika-blog</title>
-    <link>https://advika.dev/categories/python/</link>
+    <link>http://localhost:1313/categories/python/</link>
     <description>Recent content in Python on advika-blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Jul 2025 08:00:00 -0700</lastBuildDate>
-    <atom:link href="https://advika.dev/categories/python/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Model Context Protocol: An Overview</title>
-      <link>https://advika.dev/mcp/</link>
-      <pubDate>Thu, 31 Jul 2025 08:00:00 -0700</pubDate>
-      <guid>https://advika.dev/mcp/</guid>
-      <description>&lt;p&gt;Over the summer, I&amp;rsquo;ve been spending a lot of time working with the latest open framework for agentic AI: Model Context Protocol. In this article, we&amp;rsquo;ll go through what exactly MCP is and how it can significantly enhance agentic workflows.&lt;/p&gt;&#xA;&lt;h1 id=&#34;what-is-mcp&#34;&gt;What is MCP?&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Model Context Protocol&lt;/strong&gt; is the “USB-C” or the “glue” of agentic AI—a protocol developed by &lt;a href=&#34;https://www.anthropic.com/&#34;&gt;Anthropic&lt;/a&gt; to standardize how tools, resources, prompts, and more (i.e. context) are exposed to AI agents. Its name effectively describes its job:&lt;/p&gt;</description>
-    </item>
+    <atom:link href="http://localhost:1313/categories/python/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
