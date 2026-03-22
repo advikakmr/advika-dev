@@ -269,31 +269,24 @@ figcaption {
 
 /* SINGLE END */
 
-@media (max-width: 1536px) {
-    .container {
-        max-width: 1366px;
-    }
-}
-@media (max-width: 1366px) {
-    .container {
-        max-width: 1280px;
-    }
-}
-@media (max-width: 1280px) {
-    .container {
-        max-width: 1024px;
-    }
-}
 @media (max-width: 1024px) {
-    .container {
-        max-width: 768px;
-        padding-left: 10px;
-        padding-right: 10px;
+    .containerHome {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .containerPage {
+        padding-left: 80px;
+        padding-right: 80px;
     }
 }
 @media (max-width: 768px) {
-    .container {
-        max-width: 640px;
+    .containerHome {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .containerPage {
+        padding-left: 24px;
+        padding-right: 24px;
     }
     .logo {
         font-size: 20px;
@@ -301,20 +294,56 @@ figcaption {
     .links {
         font-size: 16px;
     }
-    
+    .singleHeadTitle {
+        font-size: 28px;
+    }
+    .singleHeadDesc {
+        font-size: 17px;
+    }
+    .singleContent {
+        font-size: 16px;
+        line-height: 28px;
+    }
 }
 @media (max-width: 640px) {
-    .container {
-        max-width: 475px;
+    .containerHome {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .containerPage {
+        padding-left: 16px;
+        padding-right: 16px;
     }
     .listItem {
         flex-direction: column;
+        gap: 16px;
+        margin-bottom: 32px;
     }
-
+    .listItemImg {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+    }
     .singleHead {
-        display: flex;
-        justify-content: between;
-        gap: 20px;
         flex-direction: column-reverse;
+        gap: 16px;
+    }
+    .singleImg {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+    }
+    .singleHeadTitle {
+        font-size: 24px;
+    }
+    .navbar {
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .footer {
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 }
