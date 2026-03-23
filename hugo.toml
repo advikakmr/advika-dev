@@ -4,7 +4,7 @@ title = 'advika-blog'
 
 [params]
     dateFormat = "Jan 2, 2006"
-    ogImage = "/images/mcp_logo.webp"
+    ogImage = "/images/cat-favicon.png"
 
 [HTTPCache]
     [HTTPCache.cache]
