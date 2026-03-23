@@ -73,4 +73,4 @@ Many questions remain, but among them all, there is one direction that I definit
 
 ## Conclusion
 
-This project has been a great introduction to computer vision for me, and in doing background research, I've learned a lot about different factors that can unknowingly distract us. I plan to continue experimenting with computer vision to push its capabilities even further. You can check out my code [here](https://github.com/advikakmr/advika-dev), and if you're interested in being a part of this project, feel free to reach out!
+This project has been a great introduction to computer vision for me, and in doing background research, I've learned a lot about different factors that can unknowingly distract us. I plan to continue experimenting with computer vision to push its capabilities even further. You can check out my code [here](https://github.com/advikakmr/quantifying-distraction), and if you're interested in being a part of this project (by contributing data), feel free to reach out!
