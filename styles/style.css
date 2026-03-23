@@ -37,8 +37,8 @@ a:hover {
 
 .containerHome {
     max-width: 1366px;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: clamp(16px, 14.6vw, 200px);
+    padding-right: clamp(16px, 14.6vw, 200px);
     padding-bottom: 75px;
     margin: auto;
     min-height: 100vh;
@@ -48,8 +48,8 @@ a:hover {
 
 .containerPage {
     max-width: 1366px;
-    padding-left: 300px;
-    padding-right: 300px;
+    padding-left: clamp(16px, 22vw, 300px);
+    padding-right: clamp(16px, 22vw, 300px);
     padding-bottom: 75px;
     margin: auto;
     min-height: 100vh;
@@ -278,25 +278,7 @@ figcaption {
 
 /* SINGLE END */
 
-@media (max-width: 1024px) {
-    .containerHome {
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-    .containerPage {
-        padding-left: 80px;
-        padding-right: 80px;
-    }
-}
 @media (max-width: 768px) {
-    .containerHome {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-    .containerPage {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
     .logo {
         font-size: 20px;
     }
@@ -313,9 +295,6 @@ figcaption {
         font-size: 16px;
         line-height: 28px;
     }
-    .listHeader {
-        text-align: center;
-    }
     .listItem {
         flex-direction: column;
         align-items: center;
@@ -326,13 +305,13 @@ figcaption {
     .listItemDetails {
         justify-content: center;
     }
-}
-@media (max-width: 640px) {
-
     .listItemImg {
         width: 100%;
         height: auto;
         max-height: 200px;
+    }
+    .listHeader {
+        text-align: center;
     }
     .singleHead {
         flex-direction: column-reverse;
